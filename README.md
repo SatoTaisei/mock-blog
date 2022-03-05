@@ -5,4 +5,4 @@
 - TypeScript
 - ESLint
 - Prettier
-- CakraUI(未)
+- TailwindCSS
