@@ -1,6 +1,7 @@
 import type { NextPage, GetStaticProps } from "next";
-import type { Article } from "../types/article";
-import { client } from "../libs/client";
+import type { Article } from "@/types/article";
+import { client } from "@/libs/client";
+import { Header } from "@/components/Header";
 
 type Props = {
   articles: Article;
@@ -9,8 +10,11 @@ type Props = {
 const Home: NextPage<Props> = ({ articles }) => {
   return (
     <>
-      <h1 className="text-3xl font-bold">タイトル：{articles.title}</h1>
-      <p className="text-l text-gray-500">{articles.body}</p>
+      <Header />
+      <main className="flex flex-col justify-center w-10/12 my-0 mx-auto">
+        <h1 className="text-3xl font-bold">Title：{articles.title}</h1>
+        <p className="text-l text-gray-500">{articles.body}</p>
+      </main>
     </>
   );
 };
