@@ -1,8 +1,6 @@
 # HeadlessCMS
 
-- microCMS(未)
+- microCMS
 - Next.js
 - TypeScript
-- ESLint
-- Prettier
 - TailwindCSS
