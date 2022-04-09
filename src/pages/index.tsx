@@ -11,7 +11,7 @@ const Home: NextPage<Props> = ({ articles }) => {
   return (
     <>
       <Header />
-      <main className="flex flex-col justify-center w-10/12 my-0 mx-auto">
+      <main className="flex flex-col justify-center w-10/12 my-8 mx-auto">
         <h1 className="text-3xl font-bold">Title：{articles.title}</h1>
         <p className="text-l text-gray-500">{articles.body}</p>
       </main>
