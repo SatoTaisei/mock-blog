@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ articles }) => {
                 <Link href={`/articles/${article.id}`}>
                   <a>
                     <h2 className="leading-relaxed text-3xl font-bold px-4">
-                      Title：{article.title}
+                      {article.title}
                     </h2>
                     <p className="text-l text-gray-500 py-2 px-4">
                       {substring200TextArray[index]}
