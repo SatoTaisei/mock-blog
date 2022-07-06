@@ -36,12 +36,11 @@ export const getStaticPaths = async () => {
     .catch(() => null);
 
   const paths = data.contents.map(
-    (content: { id: string }) => `/articles/${content.id}`
+    (content: { id: string }) => `/${content.id}`
   );
   return { paths, fallback: false };
 };
 
-// データをテンプレートに受け渡す部分の処理を記述します
 export const getStaticProps = async (context: { params: { id: string } }) => {
   const id = context.params.id;
   const data = await client
