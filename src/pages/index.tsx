@@ -11,7 +11,9 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ articles }) => {
-  const substring200TextArray: string[] = [];
+  const extract200TextInBody = (text: string) => {
+    return text.substring(0, 199);
+  };
 
   return (
     <>
@@ -19,14 +21,11 @@ const Home: NextPage<Props> = ({ articles }) => {
       <main className="w-10/12 min-h-screen my-8 mx-auto">
         <ul className="flex flex-wrap justify-center">
           {articles.map((article, index) => {
-            // 記事本文の先頭200文字を抽出
-            substring200TextArray[index] = article.body.substring(0, 199);
-
             return (
               <LinkCard
                 key={index}
                 article={article}
-                substring200Text={substring200TextArray[index]}
+                substring200Text={extract200TextInBody(article.body)}
               />
             );
           })}
