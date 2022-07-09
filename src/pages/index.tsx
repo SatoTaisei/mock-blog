@@ -18,7 +18,7 @@ const Home: NextPage<Props> = ({ articles }) => {
   return (
     <>
       <Header />
-      <main className="w-10/12 min-h-screen my-8 mx-auto">
+      <main className="w-full min-h-screen my-8 mx-auto">
         <ul className="flex flex-wrap justify-center">
           {articles.map((article, index) => {
             return (
