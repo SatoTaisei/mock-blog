@@ -25,7 +25,7 @@ const Home: NextPage<Props> = ({ articles }) => {
               <LinkCard
                 key={index}
                 article={article}
-                substring200Text={extract200TextInBody(article.body)}
+                extract200TextInBody={extract200TextInBody(article.body)}
               />
             );
           })}
