@@ -1,21 +1,17 @@
-import type { NextPage, GetStaticProps } from "next";
-import type { Article } from "@/types/article";
-
+import { useState } from "react";
 import { client } from "@/libs/client";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { LinkCard } from "@/components/LinkCard";
-import { useState } from "react";
+
+import type { NextPage, GetStaticProps } from "next";
+import type { Article } from "@/types/article";
 
 type Props = {
   articles: Article[];
 };
 
 const Home: NextPage<Props> = ({ articles }) => {
-  const extract200TextInBody = (text: string) => {
-    return text.substring(0, 199);
-  };
-
   const [searchKeyword, setSearchKeyword] = useState("");
 
   // 記事タイトルのみを抽出
@@ -43,26 +39,14 @@ const Home: NextPage<Props> = ({ articles }) => {
           {/* 検索キーワード入力なし */}
           {!searchKeyword &&
             articles.map((article, index) => {
-              return (
-                <LinkCard
-                  key={index}
-                  article={article}
-                  extract200TextInBody={extract200TextInBody(article.body)}
-                />
-              );
+              return <LinkCard article={article} key={index} />;
             })}
           {/* 検索キーワード入力あり */}
           {searchKeyword &&
             (newArticleList.length ? (
               // 該当記事あり
               newArticleList.map((article, index) => {
-                return (
-                  <LinkCard
-                    key={index}
-                    article={article}
-                    extract200TextInBody={extract200TextInBody(article.body)}
-                  />
-                );
+                return <LinkCard article={article} key={index} />;
               })
             ) : (
               // 該当記事なし

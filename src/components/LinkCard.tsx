@@ -1,15 +1,15 @@
 import Link from "next/link";
+import { VFC } from "react";
 
 import type { Article } from "@/types/article";
-import { VFC } from "react";
 
 type Props = {
   article: Article;
-} & {
-  extract200TextInBody: string[number];
 };
 
-export const LinkCard: VFC<Props> = ({ article, extract200TextInBody }) => {
+export const LinkCard: VFC<Props> = ({ article }) => {
+  const extract200TextInBody = article.body.substring(0, 199);
+
   return (
     <li className="w-80 h-60 border-2 rounded-2xl pt-2 pb-4 mx-8 my-4 hover:border-blue-500 hover:border-4">
       <Link href={`/${article.id}`}>
