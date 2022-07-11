@@ -7,19 +7,16 @@ import { LinkCard } from "@/components/LinkCard";
 import type { NextPage, GetStaticProps } from "next";
 import type { Article } from "@/types/article";
 
-type Props = {
-  articles: Article[];
-};
-
-const Home: NextPage<Props> = ({ articles }) => {
+const Home: NextPage<{ articles: Article[] }> = ({ articles }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   // 記事タイトルのみを抽出
   const articlesTitleList: string[] = articles.map((article) => article.title);
 
   const newArticleList: Article[] = [];
-  articlesTitleList.forEach((title, index) => {
+  articlesTitleList.map((title, index) => {
     if (searchKeyword) {
+      // 記事タイトルが検索に該当したら表示
       if (title.toLowerCase().indexOf(searchKeyword.toLowerCase()) !== -1)
         newArticleList.push(articles[index]);
     }
